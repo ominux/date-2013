@@ -59,8 +59,19 @@ The soft error is a recoverable error and represents as a HRS-to-LRS or LRS-to-H
 
 Compared to the soft errors, the hard errors are more serious, especially for the cross-point structure. In general, the impact of hard errors exists in two aspects: (1) the degradation of the read margin results from the shrink of the resistance ration between the HRS and the LRS. This problem appears in all of three types hard errors; (2) the design overhead that incurred by the hard errors, including the area overhead, energy consumption overhear, as well as more severe array size limitation. However, since the LRS is the decisive for the worst-case design, only the Type II hear error will affect the design. 
 
-\textbf{Add Discussion on these 3 figures Here}
 
+\textbf{Add Discussion on this figure Here}
+Impact on read margin
+\\\\\\\\\\\\\\\\\\\\
+\begin{figure}[!t]
+\centering
+    \includegraphics[width=2.5in]{./fig/margin.pdf}
+\caption{Impact of endurance failures on read margin}
+\label{fig:margin}
+\end{figure}
+
+
+As mentioned, to overcome the hard errors, the design limitations of the cross-point array is further deteriorated. To ensure the reliability of the array, the cross-point array is always designed for the worst case - making sure that the array can work reliably, regardless the data pattern in the array. Many researches have been conducted to study the worst case design~\cite{jiale, Dimin_ISLPED} and it has been figure out that the lowest resistance is the key parameter for the worst case design of cross-point array. Since the LRS resistance reduction is only observed in Type II error, therefore, we conclude the Type II hard error is the key player for the worst case design. Firstly, the limitation of the array size results from the voltage drop along the wordlines and bitlines. Our simulation shows that the decrease of the resistance of LRS will aggravate the voltage drop and therefor reduce the allowable array size. As shown in Fig.~\ref{fig:size}, the maximum array size reduces from 512 by 512 to 355 by 355 with the LRS resistance drop to half of its original value. Besides, the energy consumption and the driver current are also impact by the LRS resistance reduction. Fig.~\ref{fig:EC} shows the energy and driver current overhead of the LRS resistance reduction. As shown, the worst case energy consumption of the array increases by 55\%. On the other hand, the driver current in increases up to 72\%. Since the area of the wordline voltage driver and bitline multiplexors is linearly related to the driver current requirement, the area of peripheral circuits are also harmed. 
 
 %As mentioned, the existence of the voltage drops along the metal wires and the sneak paths brings in extra reliability issues to the cross-point array design. Firstly, the maximum array size will be reduced due to the hard error. In cross-point array, the
 
