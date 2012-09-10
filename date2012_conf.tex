@@ -1,0 +1,55 @@
+\documentclass[conference, 9pt]{IEEEtran}
+
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+
+
+\usepackage[pdftex]{graphicx}
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+\title{Robust Cross-point Metal Oxide Resistive Memory Design with Hard Error and Soft Error Resilience }
+% make the title area
+\maketitle
+
+\begin{abstract}
+%\boldmath
+The transition metal oxide (TMO) resistive random access memory (ReRAM) has been identified as one of the most promising candidates for the next generation non-volatile memory (NVM) technology. Numerous TMO ReRAMs with different materials have been developed and show attractive characteristics, such as fast read/write speed, long retention time, low power consumption, high integrated density, and good scalability. In addition, the unique non-linearity of some ReRAMs provides the possibility to build a cross-point structure based ReRAM array, which further improve the area efficiency.
+
+However, the existence of sneak current and voltage drop along the interconnection metal wire bring in extra design challenges. In addition, similar to other NVM technologies, such as Phase Change Memory (PCM) and Spin-Transfer Torque RAM (STT-RAM), the ReRAMs also suffer from soft and hard cell errors. In this paper, we summarized mechanisms of both soft and hard errors of ReRAM cell and a unified model is proposed to characterize the failure behaviors.  Based on the study, circuit-level and architecture-level resilience design are proposed. Our simulation results show that, XXXXXXXXXXXX.
+\end{abstract}
+
+\input{introduction}
+\input{background}
+\input{background2}
+\input{error}
+\input{arch}
+\input{experiment}
+\input{conclusion}
+
+
+\bibliographystyle{unsrt}
+\bibliography{date2012}
+
+\end{document}
+
+
