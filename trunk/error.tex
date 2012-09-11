@@ -26,7 +26,7 @@ where $\alpha$ is a constant value, $t$ is the retention time, ad $p$ is the gen
 \begin{equation}
 p_H = exp((qVl/2d-\varepsilon_V)/kT),
 \end{equation}
-where $q$ is the electric quantity if the oxygen ions, $V$ is the applied voltage on the TMO layer, $l$ is the lattice constant, $d$ is the length of the filament's ruptured region, and the $\varepsilon_V$ is the oxygen vacancy's formation energy. 
+where $q$ is the electric quantity if the oxygen ions, $V$ is the applied voltage on the TMO layer, $l$ is the lattice constant, $d$ is the length of the filament's ruptured region, and the $\varepsilon_V$ is the oxygen vacancy's formation energy.
 
 Different from soft error, the hard error results from the limited endurance of the ReRAM cell compared to traditional DRAM/SRAM technologies. The endurance failure is caused by a gradually resistance change over the write cycles. According to different behaviors and physical mechanisms, the endurance failures are classified into three categories~\cite{harderror}:
 \begin{enumerate}
@@ -54,24 +54,25 @@ where $R_0$ is the initial resistance of LRS or HRS, $t_0$ is the start point th
 %    R_l =  20 000;  R_l_half = 100 000;
 %    Kr = 10;
 %    R_read = 100 000;
-
+%    R_read_h =1 000 000;
 The soft error is a recoverable error and represents as a HRS-to-LRS or LRS-to-HRS transition. Therefore, we conclude that soft errors can only affect the information stored in the cells where the endurance failures arise, and will not affect the other cells in the cross-point array. To overcome the soft error, the Error Correction Code (ECC) is necessary. The area, energy, and latency overheads will be evaluate in Section~\ref{sec:expe}.
 
-Compared to the soft errors, the hard errors are more serious, especially for the cross-point structure. In general, the impact of hard errors exists in two aspects: (1) the degradation of the read margin results from the shrink of the resistance ration between the HRS and the LRS. This problem appears in all of three types hard errors; (2) the design overhead that incurred by the hard errors, including the area overhead, energy consumption overhear, as well as more severe array size limitation. However, since the LRS is the decisive for the worst-case design, only the Type II hear error will affect the design. 
+Compared to the soft errors, the hard errors are more serious, especially for the cross-point structure. In general, the impact of hard errors exists in two aspects: (1) the degradation of the read margin results from the shrink of the resistance ration between the HRS and the LRS. This problem appears in all of three types hard errors; (2) the design overhead that incurred by the hard errors, including the area overhead, energy consumption overhear, as well as more severe array size limitation. However, since the LRS is the decisive for the worst-case design, only the Type II hear error will affect the design.
 
 
-\textbf{Add Discussion on this figure Here}
-Impact on read margin
-\\\\\\\\\\\\\\\\\\\\
+Fig.~\ref{fig:margin} shows the read margin degradation results from the resistance change of the HRS and LRS. According to the aforementioned Type I-III hard errors, the endurance failures of HRS always represent the resistance reduction. However, the resistance of LRS may either increases (for Type I error) or decreases (for Type II error). Therefore, in this figure, we assume the resistance of HRS can reduce to half of the original value, while that of LRS can either increase or decrease by 50\% of the original value. From the figure, we can see that the reduction of the resistance ratio between HRS and LRS, which results from the resistance increasing of LRS and decreasing of HRS, has significant impact on the read margin. For example, when the resistance of LRS reduces by 50\%, the read margin will reduce by 35\%. And when the resistance of HRS increase by 50\%, the read margin shrinks to only 1.2\% of the original read margin. This observation indicates that the HRS endurance failure brings more serious degradation to the read noise margin. 
+
+%In addition, our simulation also shows that the endurance failures can also make the array unreadable for specific HRS resistance increasing and LRS resistance decreasing. In our simulation, XXXXXXXXXXX Inditace the unreadable region.
+
 \begin{figure}[!t]
 \centering
-    \includegraphics[width=2.5in]{./fig/margin.pdf}
-\caption{Impact of endurance failures on read margin}
+    \includegraphics[width=2in]{./fig/margin.pdf}
+\caption{Impact of endurance failures on read margin.}
 \label{fig:margin}
 \end{figure}
 
 
-As mentioned, to overcome the hard errors, the design limitations of the cross-point array is further deteriorated. To ensure the reliability of the array, the cross-point array is always designed for the worst case - making sure that the array can work reliably, regardless the data pattern in the array. Many researches have been conducted to study the worst case design~\cite{jiale, Dimin_ISLPED} and it has been figure out that the lowest resistance is the key parameter for the worst case design of cross-point array. Since the LRS resistance reduction is only observed in Type II error, therefore, we conclude the Type II hard error is the key player for the worst case design. Firstly, the limitation of the array size results from the voltage drop along the wordlines and bitlines. Our simulation shows that the decrease of the resistance of LRS will aggravate the voltage drop and therefor reduce the allowable array size. As shown in Fig.~\ref{fig:size}, the maximum array size reduces from 512 by 512 to 355 by 355 with the LRS resistance drop to half of its original value. Besides, the energy consumption and the driver current are also impact by the LRS resistance reduction. Fig.~\ref{fig:EC} shows the energy and driver current overhead of the LRS resistance reduction. As shown, the worst case energy consumption of the array increases by 55\%. On the other hand, the driver current in increases up to 72\%. Since the area of the wordline voltage driver and bitline multiplexors is linearly related to the driver current requirement, the area of peripheral circuits are also harmed. 
+As mentioned, to overcome the hard errors, the design limitations of the cross-point array is further deteriorated. To ensure the reliability of the array, the cross-point array is always designed for the worst case - making sure that the array can work reliably, regardless the data pattern in the array. Many researches have been conducted to study the worst case design~\cite{jiale, Dimin_ISLPED} and it has been figure out that the lowest resistance is the key parameter for the worst case design of cross-point array. Since the LRS resistance reduction is only observed in Type II error, therefore, we conclude the Type II hard error is the key player for the worst case design. Firstly, the limitation of the array size results from the voltage drop along the wordlines and bitlines. Our simulation shows that the decrease of the resistance of LRS will aggravate the voltage drop and therefor reduce the allowable array size. As shown in Fig.~\ref{fig:size}, the maximum array size reduces from 512 by 512 to 355 by 355 with the LRS resistance drop to half of its original value. Besides, the energy consumption and the driver current are also impact by the LRS resistance reduction. Fig.~\ref{fig:EC} shows the energy and driver current overhead of the LRS resistance reduction. As shown, the worst case energy consumption of the array increases by 55\%. On the other hand, the driver current in increases up to 72\%. Since the area of the wordline voltage driver and bitline multiplexors is linearly related to the driver current requirement, the area of peripheral circuits are also harmed.
 
 %As mentioned, the existence of the voltage drops along the metal wires and the sneak paths brings in extra reliability issues to the cross-point array design. Firstly, the maximum array size will be reduced due to the hard error. In cross-point array, the
 
